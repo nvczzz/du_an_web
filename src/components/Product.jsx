@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useCart } from "../context/CartProvider";
 
 export default function Product() {
-  const { addToCart, products, loading } = useCart();
+  const {products, loading } = useCart();
   const [searchParams, setSearchParams] = useSearchParams();
 
   // Filter & Search states
