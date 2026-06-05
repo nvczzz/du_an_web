@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartProvider';
-import LoginModal from './Login';
 
 const normalizeText = (value = "") =>
   String(value)
@@ -13,7 +12,6 @@ export default function Menu() {
   const { cart, currentUser, logoutUser, products } = useCart();
   const [searchTerm, setSearchTerm] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
   const navigate = useNavigate();
@@ -193,7 +191,7 @@ export default function Menu() {
 
               {/* Cart badge link — pill xanh nổi bật riêng */}
               <li className="nav-item">
-                <Link className="btn-cart-nav d-inline-flex align-items-center gap-1 text-decoration-none" to="/cart" onClick={() => setIsNavCollapsed(true)}>
+                <Link className="btn-nav-link d-inline-flex align-items-center gap-1 text-decoration-none" to="/cart" onClick={() => setIsNavCollapsed(true)}>
                   Giỏ hàng
                   {cartItemsCount > 0 && (
                     <span className="cart-badge-count">
@@ -227,12 +225,20 @@ export default function Menu() {
                   </div>
                 </li>
               ) : (
-                <li className="nav-item">
+                <li className="nav-item d-flex gap-2">
                   <button 
-                    onClick={() => { setShowLogin(true); setIsNavCollapsed(true); }} 
+                    onClick={() => { navigate('/login'); setIsNavCollapsed(true); }} 
                     className="btn btn-premium rounded-pill px-4 py-2"
                   >
                     Đăng Nhập
+                  </button>
+
+                  <button
+                    onClick={() => { navigate('/register'); setIsNavCollapsed(true); }}
+                    className="btn btn-premium rounded-pill px-3 py-2"
+                    style={{ fontSize: '0.85rem' }}
+                  >
+                    Đăng Ký
                   </button>
                 </li>
               )}
@@ -241,8 +247,7 @@ export default function Menu() {
         </div>
       </nav>
 
-      {/* Account Slide drawer */}
-      <LoginModal show={showLogin} handleClose={() => setShowLogin(false)} />
+      
     </>
   );
 }

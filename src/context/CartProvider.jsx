@@ -1,11 +1,4 @@
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, {createContext, useCallback, useContext, useEffect, useMemo, useState,} from "react";
 
 const CartContext = createContext(null);
 const API_URL = "http://localhost:4000";
@@ -87,13 +80,22 @@ export function CartProvider({ children }) {
     });
   }, []);
 
+  const removeFromCart = useCallback((id) => {
+  setCart((prevCart) =>
+    prevCart.filter((item) => item.id !== id)
+  );
+  }, []);
+
+  const clearCart = useCallback(() => {
+  setCart([]);
+  }, []);
+
   const loginUser = useCallback(
     (username, password) => {
       const foundUser =
-        users.find(
-          (user) =>
-            user.username === username &&
-            String(user.password) === String(password),
+        users.find((user) =>
+          (user.username === username || user.email === username || user.phone === username) &&
+          String(user.password) === String(password),
         ) ||
         (username === "user" && password === "123"
           ? { id: "demo", username: "user", name: "Demo User" }
@@ -145,6 +147,8 @@ export function CartProvider({ children }) {
       cart,
       currentUser,
       addToCart,
+      removeFromCart,
+      clearCart,
       loginUser,
       registerUser,
       logoutUser,
@@ -155,6 +159,8 @@ export function CartProvider({ children }) {
       cart,
       currentUser,
       addToCart,
+      removeFromCart,
+      clearCart,
       loginUser,
       registerUser,
       logoutUser,

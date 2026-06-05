@@ -212,16 +212,13 @@ return (
                 </div>
 
                 <div className="medicine-info-row">
-                  <span>Hãng:</span> {prod.brand}
+                  <span>Thương hiệu:</span> {prod.brand}
                 </div>
                 <div className="medicine-info-row">
                   <span>Danh mục:</span> {prod.category}
                 </div>
                 <div className="medicine-info-row">
-                  <span>Đánh giá:</span> {prod.rating}
-                </div>
-                <div className="medicine-info-row">
-                  <span>Giá:</span> {prod.price.toLocaleString()}đ
+                  <span>Giá:</span> {prod.price.toLocaleString()} VND
                 </div>
 
                 <div className="medicine-card-actions">

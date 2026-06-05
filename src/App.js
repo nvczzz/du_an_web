@@ -10,6 +10,8 @@ import Detail from './components/Detail';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import Profile from './components/Profile';
+import Register from './components/Register';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </div>
           

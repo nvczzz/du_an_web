@@ -216,8 +216,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Nút Nav Điều Hướng — Dạng text gọn nhẹ */
 .btn-nav-link {
   background: transparent;
-  color: #0f172a;           /* Đen gần — rất dễ đọc */
-  border: none;
+  color: #14b8a6;         /* Đen gần — rất dễ đọc */
+  border: 1px solid #14b8a6;
+  border-radius: 999px;
   font-weight: 600;
   padding: 6px 14px;
   border-radius: 8px;
@@ -266,26 +267,6 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--primary);
 }
 
-/* Nút Giỏ Hàng — Xanh nhạt nổi bật riêng */
-.btn-cart-nav {
-  background: linear-gradient(135deg, rgba(13,148,136,0.12) 0%, rgba(2,132,199,0.08) 100%);
-  color: var(--primary);
-  border: 1.5px solid rgba(13, 148, 136, 0.30);
-  font-weight: 700;
-  padding: 7px 16px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.btn-cart-nav:hover {
-  background: linear-gradient(135deg, rgba(13,148,136,0.22) 0%, rgba(2,132,199,0.14) 100%);
-  border-color: var(--primary);
-  color: var(--primary-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.18);
-}
 
 .cart-badge-count {
   position: absolute;
@@ -1240,6 +1221,9 @@ body {
 .text-teal,
 .hover-teal:hover {
   color: #0f766e !important;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .bg-teal {
@@ -1286,6 +1270,9 @@ body {
 .hero-title .text-teal {
   color: #0f766e !important;
   -webkit-text-fill-color: currentColor;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .btn-premium,
@@ -1445,7 +1432,7 @@ body {
 }
 
 .sort-label{
-    color:#fff;
+    color:#111;
     font-weight:600;
     white-space:nowrap;
     margin-top:5px;
